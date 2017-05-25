@@ -1,9 +1,15 @@
 package io.altar.jsfproject.view;
 
+
+import java.util.Collection;
+
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import io.altar.jsfproject.model.Product;
+import io.altar.jsfproject.service.ProductService;
+
 
 @Named("ProductBean")
 @RequestScoped
@@ -11,14 +17,31 @@ public class ProductBean {
 	
 	private Product product = new Product();
 	private boolean editable = false;
-
 	
-	public boolean isEditable() {
-		return editable;
-	}
+	@Inject
+	private ProductService productService;
 
-	public void setEditable(boolean editable) {
-		this.editable = editable;
+	public String toMenu() {
+		if (!isEditable()) { // se nao for editavel é porque tem de ser criado
+			System.out.println(product.getName());
+			productService.create(product);
+		} else if (isEditable()) { // se for editavel
+			productService.update(product);
+		}
+		System.out.println(product);
+		return "product-menu?faces-redirect=true";
+	}
+	
+	public void remove(){
+		productService.remove(product);
+	}
+	
+	public Collection<Product> consult(){ 
+		return productService.consult();
+	}
+	
+	public void edit(){
+		editable = true;
 	}
 
 	public Product getProduct() {
@@ -29,8 +52,12 @@ public class ProductBean {
 		this.product = product;
 	}
 
-	public void edit(){
-		editable = true;
+	public boolean isEditable() {
+		return editable;
+	}
+
+	public void setEditable(boolean editable) {
+		this.editable = editable;
 	}
 	
 }

@@ -16,7 +16,7 @@
 					<h2>PRODUCT MENU</h2>
 					<br />
 
-					<p:dataTable var="product" value="#{ProductService.productList}"
+					<p:dataTable var="product" value="#{ProductBean.consult()}"
 						scrollable="true" scrollHeight="250">
 						<p:column headerText="Id">
 							<h:outputText value="#{product.id}" />

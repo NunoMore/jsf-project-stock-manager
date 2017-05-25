@@ -3,6 +3,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/layouts/commonLayout.xhtml">
 
 	<ui:define name="content">
@@ -19,7 +20,7 @@
 
 								<p>
 									Nome:
-									<h:inputText id="nameInput" value="#{ProductBean.product.name}"
+									<p:inputText id="nameInput" value="#{ProductBean.product.name}"
 										onmouseover="$('#nameWarning').show();"
 										onmouseout="$('#nameWarning').hide();"/>
 								</p>
@@ -28,7 +29,7 @@
 									PVP:
 									<h:inputText id="pvpInput" value="#{ProductBean.product.pvp}"
 										onmouseover="$('#pvpWarning').show();"
-										onmouseout="$('#pvpWarning').hide();" />
+										onmouseout="$('#pvpWarning').hide();"/>
 								</p>
 
 								<p>
@@ -64,8 +65,7 @@
 				<DIV class="row">
 					<DIV class="col-md-12">
 						<h:form>
-							<h:commandLink value="« Back" action="product-menu?faces-redirect=true"
-								actionListener="#{ProductService.toMenu()}" />
+							<h:commandLink value="« Back" action="#{ProductBean.toMenu()}" />
 						</h:form>
 
 					</DIV> 

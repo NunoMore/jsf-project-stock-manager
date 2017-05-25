@@ -25,12 +25,6 @@ public class Product extends Entity{
 	public void removeShelfId(long id){
 		shelfId.remove(id);
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public int getDiscount() {
 		return discount;
 	}
@@ -49,6 +43,19 @@ public class Product extends Entity{
 	public void setPvp(double pvp) {
 		this.pvp = pvp;
 	}
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 	//overide de toString to use 
+	@Override
+	public String toString(){
+		return this.name + " - " + pvp;
+	}
 	
 }
