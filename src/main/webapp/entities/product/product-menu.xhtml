@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layouts/commonLayout.xhtml">
+
+	<ui:define name="content">
+		<DIV class="row">
+			<DIV class="col-md-1"></DIV>
+			<DIV class="col-md-10">
+
+				<h:form>
+					<h2>PRODUCT MENU</h2>
+					<br />
+
+					<p:dataTable var="product" value="#{ProductService.productList}"
+						scrollable="true" scrollHeight="250">
+						<p:column headerText="Id">
+							<h:outputText value="#{product.id}" />
+						</p:column>
+
+						<p:column headerText="Name">
+							<h:outputText value="#{product.name}" />
+						</p:column>
+
+						<p:column headerText="PVP">
+							<h:outputText value="#{product.pvp}" />
+						</p:column>
+
+						<p:column headerText="IVA">
+							<h:outputText value="#{product.iva}" />
+						</p:column>
+
+						<p:column headerText="Discount">
+							<h:outputText value="#{product.discount}" />
+						</p:column>
+
+						<p:column headerText="Edit (Remove)">
+							<h:commandButton value="Editar"
+								action="product?faces-redirect=true"
+								actionListener="#{ProductBean.edit()}" />
+						</p:column>
+
+					</p:dataTable>
+					<br />
+
+					<h:commandButton value="Criar produto"
+						action="product?faces-redirect=true" />
+					<br />
+
+					<h:commandLink value="« Back"
+						action="/main-menu?faces-redirect=true" />
+				</h:form>
+
+			</DIV>
+		</DIV>
+	</ui:define>
+
+</ui:composition>

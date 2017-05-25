@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/layouts/commonLayout.xhtml">
+
+	<ui:define name="content">
+		<DIV class="row">
+			<DIV class="col-md-12">
+				<h:form>
+					<h2>SHELF MENU</h2>
+					<br />
+	
+					<h3>Por favor selecione uma das seguintes opcoes:</h3>
+					<h:commandButton value="1) Criar prateleira" action="shelf-create" 
+						actionListener="#{create.shelf()}" />
+					<br />
+					<h:commandButton value="2) Editar prateleira" action="shelf-update" />
+					<br />
+					<h:commandButton value="3) Consultar prateleira" action="shelf-consult" />
+					<br />
+					<h:commandButton value="4) Remover prateleira" action="shelf-remove" />
+					<br />
+					<h:commandLink value="« Back" action="/main-menu" />
+				</h:form>
+			</DIV>
+		</DIV>
+	</ui:define>
+
+</ui:composition>
+

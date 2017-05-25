@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/layouts/commonLayout.xhtml">
+
+	<ui:define name="content">
+
+		<DIV class="row">
+			<DIV class="col-md-12">
+				<DIV class="row">
+					<DIV class="col-md-12">
+						<h:form>
+							<h2>PRODUCT</h2>
+							<br />
+							<div class="col-md-3"></div>
+							<div class="col-md-3">
+
+								<p>
+									Nome:
+									<h:inputText id="nameInput" value="#{ProductBean.product.name}"
+										onmouseover="$('#nameWarning').show();"
+										onmouseout="$('#nameWarning').hide();"/>
+								</p>
+
+								<p>
+									PVP:
+									<h:inputText id="pvpInput" value="#{ProductBean.product.pvp}"
+										onmouseover="$('#pvpWarning').show();"
+										onmouseout="$('#pvpWarning').hide();" />
+								</p>
+
+								<p>
+									IVA:
+									<h:inputText id="ivaInput" value="#{ProductBean.product.iva}"
+										onmouseover="$('#ivaWarning').show();"
+										onmouseout="$('#ivaWarning').hide();"/>
+								</p>
+
+								<p>
+									Desconto:
+									<h:inputText id="discountInput"
+										value="#{ProductBean.product.discount}"
+										onmouseover="$('#discountWarning').show();"
+										onmouseout="$('#discountWarning').hide();"/>
+								</p>
+
+							</div>
+
+							<div class="col-md-3">
+
+								<p id="nameWarning" class="warning">Must insert name</p>
+								<p id="pvpWarning" class="warning">Must insert number</p>
+								<p id="ivaWarning" class="warning">Must insert number</p>
+								<p id="discountWarning" class="warning">Must insert number</p>
+							</div>
+
+							<div class="col-md-3"></div>
+						</h:form>
+					</DIV>
+				</DIV>
+
+				<DIV class="row">
+					<DIV class="col-md-12">
+						<h:form>
+							<h:commandLink value="« Back" action="product-menu?faces-redirect=true"
+								actionListener="#{ProductService.toMenu()}" />
+						</h:form>
+
+					</DIV> 
+				</DIV>
+			</DIV>
+		</DIV>
+	</ui:define>
+	<!-- <script type="text/javascript" src="/resources/javascript/product-create-script.js"></script> -->
+</ui:composition>

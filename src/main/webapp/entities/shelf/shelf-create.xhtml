@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/layouts/commonLayout.xhtml">
+
+	<ui:define name="content">
+		<DIV class="row">
+			<DIV class="col-md-12">
+			
+				<h:form>
+					<h2>CREATE SHELF</h2>
+					<br />
+
+					<p>Location: <h:inputText value="#{getEntity.shelf().location}" /></p>
+					
+					<p>Capacity: <h:inputText value="#{getEntity.shelf().capacity}" /></p>
+					
+					<p>Rent price: <h:inputText value="#{getEntity.shelf().rentPrice}" /></p>
+					
+					<p>Product: <h:inputText value="#{getEntity.shelf().productId}" /></p>
+					
+					<h:commandLink value="« Back" action="shelf-menu" />
+				</h:form>
+			</DIV>
+		</DIV>
+	</ui:define>
+
+</ui:composition>

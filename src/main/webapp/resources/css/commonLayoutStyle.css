@@ -1,0 +1,35 @@
+
+/* header */
+#header{
+  background-color: #666;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  color: white;
+  width: 100%;
+}
+
+/* fundo */
+.fundoGeral{
+	background-color: white;
+	text-align: center;
+}
+
+/* footer */
+#footer{
+  background-color: #666;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  color: white;
+  width: 100%;
+}
+
+/* warning */
+.warning{
+	color: red;
+  font-weight: bold;
+}
+
