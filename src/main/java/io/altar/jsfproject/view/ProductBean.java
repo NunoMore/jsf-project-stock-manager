@@ -21,15 +21,13 @@ public class ProductBean {
 	@Inject
 	private ProductService productService;
 
-	public String toMenu() {
+	public void toMenu() {
 		if (!isEditable()) { // se nao for editavel é porque tem de ser criado
-			System.out.println(product.getName());
 			productService.create(product);
 		} else if (isEditable()) { // se for editavel
 			productService.update(product);
 		}
-		System.out.println(product);
-		return "product-menu?faces-redirect=true";
+//		return "product-menu?faces-redirect=true";
 	}
 	
 	public void remove(){
@@ -40,8 +38,10 @@ public class ProductBean {
 		return productService.consult();
 	}
 	
-	public void edit(){
+	public void edit(Long id){
 		editable = true;
+		this.product = productService.consult(id);
+//		return "product?faces-redirect=true";
 	}
 
 	public Product getProduct() {

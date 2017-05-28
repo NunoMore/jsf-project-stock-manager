@@ -40,19 +40,19 @@
 
 						<p:column headerText="Edit (Remove)">
 							<h:commandButton value="Editar"
-								action="product?faces-redirect=true"
-								actionListener="#{ProductBean.edit()}" />
+								action="product?faces-redirect=true" 
+								actionListener="#{ProductBean.edit(product.id)}"/>
 						</p:column>
 
 					</p:dataTable>
 					<br />
 
-					<h:commandButton value="Criar produto"
-						action="product?faces-redirect=true" />
+					<p:commandButton value="Criar produto"
+						action="product?faces-redirect=true" ajax="false"/>
 					<br />
 
-					<h:commandLink value="« Back"
-						action="/main-menu?faces-redirect=true" />
+					<p:commandLink value="« Back"
+						action="/main-menu?faces-redirect=true" ajax="false" />
 				</h:form>
 
 			</DIV>

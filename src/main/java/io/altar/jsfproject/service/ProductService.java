@@ -28,5 +28,9 @@ public class ProductService{
 	public Collection<Product> consult(){
 		return DB_bean.getPRODUCT_REPOSITORY().consult();
 	}
+	
+	public Product consult(long id){
+		return DB_bean.getPRODUCT_REPOSITORY().consult(id);
+	}
 
 }

@@ -10,41 +10,41 @@
 
 		<DIV class="row">
 			<DIV class="col-md-12">
-				<DIV class="row">
-					<DIV class="col-md-12">
-						<h:form>
+				<h:form>
+					<DIV class="row">
+						<DIV class="col-md-12">
 							<h2>PRODUCT</h2>
 							<br />
-							<div class="col-md-3"></div>
-							<div class="col-md-3">
+							<div class="col-md-1"></div>
+							<div class="col-md-6">
 
 								<p>
 									Nome:
 									<p:inputText id="nameInput" value="#{ProductBean.product.name}"
 										onmouseover="$('#nameWarning').show();"
-										onmouseout="$('#nameWarning').hide();"/>
+										onmouseout="$('#nameWarning').hide();" />
 								</p>
 
 								<p>
 									PVP:
-									<h:inputText id="pvpInput" value="#{ProductBean.product.pvp}"
+									<p:inputText id="pvpInput" value="#{ProductBean.product.pvp}"
 										onmouseover="$('#pvpWarning').show();"
-										onmouseout="$('#pvpWarning').hide();"/>
+										onmouseout="$('#pvpWarning').hide();" />
 								</p>
 
 								<p>
 									IVA:
-									<h:inputText id="ivaInput" value="#{ProductBean.product.iva}"
+									<p:inputText id="ivaInput" value="#{ProductBean.product.iva}"
 										onmouseover="$('#ivaWarning').show();"
-										onmouseout="$('#ivaWarning').hide();"/>
+										onmouseout="$('#ivaWarning').hide();" />
 								</p>
 
 								<p>
 									Desconto:
-									<h:inputText id="discountInput"
+									<p:inputText id="discountInput"
 										value="#{ProductBean.product.discount}"
 										onmouseover="$('#discountWarning').show();"
-										onmouseout="$('#discountWarning').hide();"/>
+										onmouseout="$('#discountWarning').hide();" />
 								</p>
 
 							</div>
@@ -52,26 +52,27 @@
 							<div class="col-md-3">
 
 								<p id="nameWarning" class="warning">Must insert name</p>
+								<BR />
 								<p id="pvpWarning" class="warning">Must insert number</p>
+								<BR /><BR />
 								<p id="ivaWarning" class="warning">Must insert number</p>
+								<BR /><BR /><BR /><BR />
 								<p id="discountWarning" class="warning">Must insert number</p>
+								<BR /><BR /><BR /><BR /><BR />
 							</div>
 
-							<div class="col-md-3"></div>
-						</h:form>
+							<div class="col-md-2"></div>
+						</DIV>
 					</DIV>
-				</DIV>
-
-				<DIV class="row">
-					<DIV class="col-md-12">
-						<h:form>
-							<h:commandLink value="« Back" action="#{ProductBean.toMenu()}" />
-						</h:form>
-
-					</DIV> 
-				</DIV>
+					<DIV class="row">
+						<DIV class="col-md-12">
+							<p:commandLink value="« Back"
+								action="product-menu?faces-redirect=true"
+								actionListener="#{ProductBean.toMenu()}" ajax="false"/>
+						</DIV>
+					</DIV>
+				</h:form>
 			</DIV>
 		</DIV>
 	</ui:define>
-	<!-- <script type="text/javascript" src="/resources/javascript/product-create-script.js"></script> -->
 </ui:composition>
