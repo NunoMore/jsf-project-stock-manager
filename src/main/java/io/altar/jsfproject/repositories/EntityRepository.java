@@ -8,6 +8,10 @@ import io.altar.jsfproject.model.Entity;
 public class EntityRepository <E extends Entity> { //E sera product ou shelf
 	
 	private HashMap<Long, E> m1 = new HashMap<>();
+	public HashMap<Long, E> getM1() {
+		return m1;
+	}
+
 	private long maiorId = 0;
 	
 	public long getMaiorId() {

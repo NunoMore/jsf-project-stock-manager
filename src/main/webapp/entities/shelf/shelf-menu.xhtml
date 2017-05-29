@@ -3,30 +3,60 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/layouts/commonLayout.xhtml">
 
 	<ui:define name="content">
 		<DIV class="row">
-			<DIV class="col-md-12">
+			<DIV class="col-md-1"></DIV>
+			<DIV class="col-md-10">
+
 				<h:form>
 					<h2>SHELF MENU</h2>
 					<br />
-	
-					<h3>Por favor selecione uma das seguintes opcoes:</h3>
-					<h:commandButton value="1) Criar prateleira" action="shelf-create" 
-						actionListener="#{create.shelf()}" />
+
+					<p:dataTable var="shelf" value="#{ShelfService.consult()}"
+						scrollable="true" scrollHeight="250">
+						<p:column headerText="Id">
+							<h:outputText value="#{shelf.id}" />
+						</p:column>
+
+						<p:column headerText="Location">
+							<h:outputText value="#{shelf.location}" />
+						</p:column>
+
+						<p:column headerText="Capacity">
+							<h:outputText value="#{shelf.capacity}" />
+						</p:column>
+
+						<p:column headerText="Product ID">
+							<h:outputText value="#{shelf.productId}" />
+						</p:column>
+
+						<p:column headerText="Rent Price">
+							<h:outputText value="#{shelf.rentPrice}" />
+						</p:column>
+
+						<p:column headerText="Edit (Remove)">
+							<p:commandButton value="Editar"
+								action="shelf" 
+								actionListener="#{ShelfService.edit(shelf.id)}"/>
+						</p:column>
+
+					</p:dataTable>
 					<br />
-					<h:commandButton value="2) Editar prateleira" action="shelf-update" />
+
+					<p:commandButton value="Criar prateleira"
+						action="shelf" ajax="false"/>
 					<br />
-					<h:commandButton value="3) Consultar prateleira" action="shelf-consult" />
-					<br />
-					<h:commandButton value="4) Remover prateleira" action="shelf-remove" />
-					<br />
-					<h:commandLink value="« Back" action="/main-menu" />
+
+					<p:commandLink value="« Back"
+						action="/main-menu" ajax="false" />
 				</h:form>
+
 			</DIV>
 		</DIV>
 	</ui:define>
 
 </ui:composition>
-

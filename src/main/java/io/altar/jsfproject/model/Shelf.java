@@ -3,7 +3,7 @@ package io.altar.jsfproject.model;
 
 public class Shelf extends Entity{
 	
-	private enum Location{TOP, MID, BOT};
+//	private enum Location{TOP, MID, BOT};
 	private String location;
 	private int capacity;
 	private long productId;

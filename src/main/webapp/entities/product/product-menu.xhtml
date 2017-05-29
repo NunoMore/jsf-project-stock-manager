@@ -37,9 +37,13 @@
 						<p:column headerText="Discount">
 							<h:outputText value="#{product.discount}" />
 						</p:column>
+						
+						<p:column headerText="Shelfs">
+							<h:outputText value="#{product.shelfId}" />
+						</p:column>
 
 						<p:column headerText="Edit (Remove)">
-							<h:commandButton value="Editar"
+							<p:commandButton value="Editar"
 								action="product" 
 								actionListener="#{ProductService.edit(product.id)}"/>
 						</p:column>
