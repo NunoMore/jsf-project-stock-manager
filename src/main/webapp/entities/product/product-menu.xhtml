@@ -16,7 +16,7 @@
 					<h2>PRODUCT MENU</h2>
 					<br />
 
-					<p:dataTable var="product" value="#{ProductBean.consult()}"
+					<p:dataTable var="product" value="#{ProductService.consult()}"
 						scrollable="true" scrollHeight="250">
 						<p:column headerText="Id">
 							<h:outputText value="#{product.id}" />
@@ -40,19 +40,19 @@
 
 						<p:column headerText="Edit (Remove)">
 							<h:commandButton value="Editar"
-								action="product?faces-redirect=true" 
-								actionListener="#{ProductBean.edit(product.id)}"/>
+								action="product" 
+								actionListener="#{ProductService.edit(product.id)}"/>
 						</p:column>
 
 					</p:dataTable>
 					<br />
 
 					<p:commandButton value="Criar produto"
-						action="product?faces-redirect=true" ajax="false"/>
+						action="product" ajax="false"/>
 					<br />
 
 					<p:commandLink value="« Back"
-						action="/main-menu?faces-redirect=true" ajax="false" />
+						action="/main-menu" ajax="false" />
 				</h:form>
 
 			</DIV>
