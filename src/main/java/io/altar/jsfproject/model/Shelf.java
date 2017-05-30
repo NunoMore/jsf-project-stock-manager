@@ -1,13 +1,21 @@
 package io.altar.jsfproject.model;
 
+import java.io.Serializable;
 
-public class Shelf extends Entity{
+import io.altar.jsfproject.model.Entity;
+
+@javax.persistence.Entity
+public class Shelf extends Entity implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 //	private enum Location{TOP, MID, BOT};
 	private String location;
 	private int capacity;
 	private long productId;
 	private double rentPrice;
+	
+	//no arg constructor
+	public Shelf(){}
 	
 	public String getLocation() {
 		return location;

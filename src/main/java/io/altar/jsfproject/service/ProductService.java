@@ -1,10 +1,14 @@
 package io.altar.jsfproject.service;
 
+import java.util.List;
 import java.util.Collection;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import io.altar.jsfproject.model.Product;
 import io.altar.jsfproject.repositories.DB_bean;
@@ -13,6 +17,10 @@ import io.altar.jsfproject.view.ProductBean;
 @Named("ProductService")
 @ApplicationScoped
 public class ProductService {
+	
+	// unitName defined in persistence.xml
+	@PersistenceContext(name="Repository")
+	private static EntityManager em;
 
 	@Inject
 	private ProductBean productBean;
@@ -72,28 +80,47 @@ public class ProductService {
 		if (!isEditable()) { // se nao for editavel é porque tem de ser criado
 			Product product = productBean.getProduct();
 
-			DB_bean.getPRODUCT_REPOSITORY().create(product);
+//			DB_bean.getPRODUCT_REPOSITORY().create(product);
+			this.create(product);
 
 		} else if (isEditable()) { // se for editavel faz-se update
-			productBean.getProduct().setId(this.productId);
+//			productBean.getProduct().setId(this.productId);
 			Product product = productBean.getProduct();
 
-			DB_bean.getPRODUCT_REPOSITORY().update(product);
+//			DB_bean.getPRODUCT_REPOSITORY().update(product);
+			this.update(product); 
 			this.editable = false;
 		}
 		// return "product-menu?faces-redirect=true";
 	}
-
-	public void remove(Product product) {
-		DB_bean.getPRODUCT_REPOSITORY().remove(product.getId());
+	
+	public void create(Product product){ //use merge??
+		em.persist(product);
+	}
+	
+	public void update(Product product){ //use merge??
+		
+		em.find(Product.class, productId).setName(product.getName());
+		em.find(Product.class, productId).setPvp(product.getPvp());
+		em.find(Product.class, productId).setIva(product.getIva());
+		em.find(Product.class, productId).setDiscount(product.getDiscount());
 	}
 
-	public static Collection<Product> consult() {
-		return DB_bean.getPRODUCT_REPOSITORY().consult();
+	public void remove(Product product) {
+//		DB_bean.getPRODUCT_REPOSITORY().remove(product.getId());
+		em.remove(em.find(Product.class, product.getId()));  
+	}
+
+	public static List<Product> consult() {
+//		return DB_bean.getPRODUCT_REPOSITORY().consult();
+		TypedQuery<Product> query = em.createQuery("SELECT e FROM Product e", Product.class);
+		List<Product> productList = query.getResultList();
+		return productList;
 	}
 
 	public static Product consult(long id) {
-		return DB_bean.getPRODUCT_REPOSITORY().consult(id);
+//		return DB_bean.getPRODUCT_REPOSITORY().consult(id);
+		return em.find(Product.class, id);
 	}
 
 }

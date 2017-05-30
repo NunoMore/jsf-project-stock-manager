@@ -1,15 +1,23 @@
 package io.altar.jsfproject.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import io.altar.jsfproject.model.Entity;
 
-public class Product extends Entity{
+@javax.persistence.Entity
+public class Product extends Entity implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private String name;
 	private ArrayList<Long> shelfId = new ArrayList<>();
 	private long maiorShelfId = 0;
 	private int discount;
 	private double iva;
 	private double pvp;
+	
+	//no arg constructor
+	public Product(){}
 	
 	public ArrayList<Long> getShelfId() {
 		return shelfId;

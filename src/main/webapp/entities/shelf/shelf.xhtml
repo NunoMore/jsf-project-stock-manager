@@ -37,10 +37,18 @@
 										onmouseover="$('#capacityWarning').show();"
 										onmouseout="$('#capacityWarning').hide();" />
 								</p>
+								
+								<p>
+									ProductId:
+									<p:inputText id="productIdInput"
+										value="#{ShelfBean.shelf.productId}"
+										onmouseover="$('#productIdWarning').show();"
+										onmouseout="$('#productIdWarning').hide();" />
+								</p>
 
 								<!-- <p:outputLabel for="productIdInput" value="Product to display: " /> -->
-								<h:outputText value="#{ProductService.selectIDs()}"
-									escape="false" />
+								<!-- <h:outputText value="#{ProductService.selectIDs()}"
+									escape="false" /> -->
 
 								<p>
 									Rent price:
