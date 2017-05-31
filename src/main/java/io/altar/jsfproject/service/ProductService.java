@@ -4,20 +4,25 @@ import java.util.List;
 import java.util.Collection;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 import io.altar.jsfproject.model.Product;
 import io.altar.jsfproject.repositories.DB_bean;
 import io.altar.jsfproject.view.ProductBean;
+import java.io.Serializable;
 
 @Named("ProductService")
-@ApplicationScoped
-public class ProductService {
-	
+@Transactional
+@SessionScoped
+public class ProductService implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	// unitName defined in persistence.xml
 	@PersistenceContext(name="Repository")
 	static EntityManager em;
@@ -25,6 +30,7 @@ public class ProductService {
 	@Inject
 	private ProductBean productBean;
 
+	// ustilizar posconstruct ou predestroy ???
 	private boolean editable = false;
 	private long productId;
 
