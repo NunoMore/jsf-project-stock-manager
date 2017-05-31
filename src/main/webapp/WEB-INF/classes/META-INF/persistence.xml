@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xml>
 <persistence version="2.1">
    <persistence-unit name="Repository" transaction-type="JTA">
      <description>Repositories for entities</description>
      <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-     <jta-data-source>java:jboss/datasources/JSF_PROJECT_MANAGEMENT</jta-data-source>
+     <jta-data-source>java:jboss/datasources/MySqlDB</jta-data-source>
      <class>io.altar.jsfproject.model.Entity</class>
      <class>io.altar.jsfproject.model.Product</class>
      <class>io.altar.jsfproject.model.Shelf</class>

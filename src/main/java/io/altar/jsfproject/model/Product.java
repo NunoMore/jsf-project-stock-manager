@@ -3,11 +3,26 @@ package io.altar.jsfproject.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import io.altar.jsfproject.model.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-@javax.persistence.Entity
-public class Product extends Entity implements Serializable {
+import javax.persistence.Entity;
+
+@Entity
+public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	private String name;
 	private ArrayList<Long> shelfId = new ArrayList<>();

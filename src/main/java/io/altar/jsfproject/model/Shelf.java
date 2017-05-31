@@ -2,11 +2,25 @@ package io.altar.jsfproject.model;
 
 import java.io.Serializable;
 
-import io.altar.jsfproject.model.Entity;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-@javax.persistence.Entity
-public class Shelf extends Entity implements Serializable {
+@Entity
+public class Shelf implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 //	private enum Location{TOP, MID, BOT};
 	private String location;

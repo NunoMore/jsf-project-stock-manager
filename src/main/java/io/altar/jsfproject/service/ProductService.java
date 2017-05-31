@@ -20,7 +20,7 @@ public class ProductService {
 	
 	// unitName defined in persistence.xml
 	@PersistenceContext(name="Repository")
-	private static EntityManager em;
+	static EntityManager em;
 
 	@Inject
 	private ProductBean productBean;
@@ -42,39 +42,39 @@ public class ProductService {
 		productBean.setProduct(consult(id));
 	}
 
-	public String selectIDs(){
-		StringBuilder sb = new StringBuilder(1024);
-//		sb.append("<p:selectOneListbox id='productIdInput' value='#{ShelfBean.shelf.productId}'>");
+//	public String selectIDs(){
+////		StringBuilder sb = new StringBuilder(1024);
+////		sb.append("<p:selectOneListbox id='productIdInput' value='#{ShelfBean.shelf.productId}'>");
+////		
+////		for (long i = 0; i < DB_bean.getPRODUCT_REPOSITORY().getMaiorId(); i++) {
+////			String nameP = DB_bean.getPRODUCT_REPOSITORY().getM1().get(i+1).getName();
+////			long id = DB_bean.getPRODUCT_REPOSITORY().getM1().get(i+1).getId();
+////			sb.append("<f:selectItem itemLabel='Product "+nameP+"' itemValue='"+id+"' />");
+////		}
+////		
+////		sb.append("</p:selectOneListbox></p:selectOneListbox>");
+////		
+//
+//        
+//		sb.append("<div id='j_idt11:productIdInput' class='ui-selectonelistbox ui-inputfield ui-widget ui-widget-content ui-corner-all'><div class='ui-helper-hidden-accessible'><select id='j_idt11:productIdInput_input' name='j_idt11:productIdInput_input' size='2' aria-labelledby='j_idt11:j_idt23'>");
 //		
 //		for (long i = 0; i < DB_bean.getPRODUCT_REPOSITORY().getMaiorId(); i++) {
 //			String nameP = DB_bean.getPRODUCT_REPOSITORY().getM1().get(i+1).getName();
 //			long id = DB_bean.getPRODUCT_REPOSITORY().getM1().get(i+1).getId();
-//			sb.append("<f:selectItem itemLabel='Product "+nameP+"' itemValue='"+id+"' />");
+//			sb.append("<option value='"+id+"' >Product "+nameP+"</option>");
 //		}
 //		
-//		sb.append("</p:selectOneListbox></p:selectOneListbox>");
-		
-
-        
-		sb.append("<div id='j_idt11:productIdInput' class='ui-selectonelistbox ui-inputfield ui-widget ui-widget-content ui-corner-all'><div class='ui-helper-hidden-accessible'><select id='j_idt11:productIdInput_input' name='j_idt11:productIdInput_input' size='2' aria-labelledby='j_idt11:j_idt23'>");
-		
-		for (long i = 0; i < DB_bean.getPRODUCT_REPOSITORY().getMaiorId(); i++) {
-			String nameP = DB_bean.getPRODUCT_REPOSITORY().getM1().get(i+1).getName();
-			long id = DB_bean.getPRODUCT_REPOSITORY().getM1().get(i+1).getId();
-			sb.append("<option value='"+id+"' >Product "+nameP+"</option>");
-		}
-		
-		sb.append("</select></div><div class='ui-selectlistbox-listcontainer' style='height:auto'><ul class='ui-selectlistbox-list'>");
-		
-		for (long i = 0; i < DB_bean.getPRODUCT_REPOSITORY().getMaiorId(); i++) {
-			String nameP = DB_bean.getPRODUCT_REPOSITORY().getM1().get(i+1).getName();
-			sb.append("<li class='ui-selectlistbox-item ui-corner-all ui-state-highlight'>Product "+nameP+"</li>");
-		}
-		
-		sb.append("</ul></div></div>");
-		
-		return sb.toString();
-	}
+//		sb.append("</select></div><div class='ui-selectlistbox-listcontainer' style='height:auto'><ul class='ui-selectlistbox-list'>");
+//		
+//		for (long i = 0; i < DB_bean.getPRODUCT_REPOSITORY().getMaiorId(); i++) {
+//			String nameP = DB_bean.getPRODUCT_REPOSITORY().getM1().get(i+1).getName();
+//			sb.append("<li class='ui-selectlistbox-item ui-corner-all ui-state-highlight'>Product "+nameP+"</li>");
+//		}
+//		
+//		sb.append("</ul></div></div>");
+//		
+//		return sb.toString();
+//	}
 
 	public void toMenu() {
 		if (!isEditable()) { // se nao for editavel é porque tem de ser criado
